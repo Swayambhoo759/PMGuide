@@ -1,4 +1,8 @@
 import React, {useState} from 'react';
+import './App.css';
+import Launch from './components/Launch';
+import Form from './components/Form';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 function App() {
   const adminUser = {
@@ -9,7 +13,7 @@ function App() {
   const [error,setError] = useState("");
   const Login = details => {
     console.log(details);
-    if(details.email==adminUser.email && details.password==adminUser.password){
+    if(details.email===adminUser.email && details.password===adminUser.password){
       console.log("Logged in");
       setUser({
         name: details.name,
@@ -25,16 +29,27 @@ function App() {
     setUser({name:"",email:""});
   }
   return (
-    <div className="App">
-      {(user.email!="") ? (
-        <div className="welcome">
-          <h2>Welcome, <span>{user.name}</span></h2>
-          <button onClick={Logout}>Logout</button>
+    <Router>
+        <Switch>
+        <Route exact path="/">
+          <Launch />
+        </Route>
+        <Route exact path="/Login">
+          <div className="App">
+            {
+            (user.email!=="") ? (
+              <div className="welcome">
+              <h2>Welcome, <span>{user.name}</span></h2>
+              <button onClick={Logout}>Logout</button>
+              </div>):(<LoginForm Login={Login} error={error}/>)
+            }
           </div>
-      ):(
-        <LoginForm Login={Login} error={error}/>
-      )}
-    </div>
+        </Route> 
+        <Route exact path="/Form">
+          <Form />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
