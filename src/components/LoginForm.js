@@ -55,7 +55,7 @@ function LoginForm({Login,error}){
                 <div className="login-form">
 
                 <div className="icons">
-                    <img className="social-icons"  src={b4.default} alt="image not found" />
+                    <img className="social-icons"  src={b4.default} alt="image not found" onClick= {() =>{signInWithGoogle()}} />
                     <img className="social-icons"  src={b1.default} alt="image not found" />
                     <img className="social-icons"  src={b3.default} alt="image not found" />
                     <img className="social-icons"  src={b2.default} alt="image not found" />
