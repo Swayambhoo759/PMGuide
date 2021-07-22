@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import Launch from './components/Launch';
+import Navbar from "./components/navbar";
 import Form from './components/Form';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import LoginForm from './components/LoginForm';
+import Home from "./pages/index";
 function App() {
   const adminUser = {
     email: "admin@admin.com",
@@ -31,9 +33,9 @@ function App() {
   return (
     <Router>
         <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Launch />
-        </Route>
+        </Route> */}
         <Route exact path="/Login">
           <div className="App">
             {
@@ -45,7 +47,10 @@ function App() {
             }
           </div>
         </Route> 
-        <Route exact path="/Form">
+        <Route exact path="/">
+            <Home />
+        </Route>
+        <Route exact path="/SignUp">
           <Form />
         </Route>
       </Switch>

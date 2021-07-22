@@ -82,7 +82,7 @@ function LoginForm({Login,error}){
             {/* <p id="button">Sign In</p> */}
             <p id="cont">
                 <div>I Don’t have an account?&nbsp;</div>
-               <Link to="/Form">
+               <Link to="/SignUp">
                     <div className="diff">Sign up</div>
                    </Link>
             </p>
